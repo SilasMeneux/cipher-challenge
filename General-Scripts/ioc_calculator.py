@@ -1,8 +1,10 @@
+import ciphertext_cleanup
+
 def IoC(text):
-    text=(text.replace(" ","")).lower()
+    text = ciphertext_cleanup.clean_ciphertext(text)
     ioc=0
     N=len(text)
-    letters="abcdefghijklmnopqrstuvwxyz"
+    letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for i in range(26):
         n=text.count(letters[i])
         ioc+=(n*(n-1))/(N*(N-1))
